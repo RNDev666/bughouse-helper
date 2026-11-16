@@ -1,0 +1,75 @@
+/* Shared look for the popup and options page. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --border: #e2e5ea;
+  --text: #16181d;
+  --muted: #6b7280;
+  --accent: #3b6ef0;
+  --danger: #d1453b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181d;
+    --surface: #1f2228;
+    --border: #32363e;
+    --text: #e8eaed;
+    --muted: #9aa1ac;
+    --accent: #6f95ff;
+    --danger: #f0736a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: -0.01em; }
+.muted { color: var(--muted); font-size: 13px; }
+.error { color: var(--danger); font-size: 13px; }
+
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+
+input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+}
+
+button {
+  font: inherit;
+  font-size: 14px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: inherit;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: border-color 120ms, color 120ms, filter 120ms;
+}
+button:hover { border-color: var(--accent); color: var(--accent); }
+
+.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.primary:hover { color: #fff; filter: brightness(1.08); }
+
+.link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+input:focus-visible,
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

@@ -1,0 +1,33 @@
+{
+  "name": "my-extension",
+  "version": "0.1.0",
+  "description": "A cross-browser extension built from the browser extension template.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs chrome && node build.mjs firefox",
+    "build:chrome": "node build.mjs chrome",
+    "build:firefox": "node build.mjs firefox",
+    "dev:chrome": "node build.mjs chrome --watch",
+    "dev:firefox": "node build.mjs firefox --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "web-ext lint --source-dir dist/firefox",
+    "zip:chrome": "web-ext build --source-dir dist/chrome --artifacts-dir dist --filename {name}-chrome-{version}.zip --overwrite-dest",
+    "zip:firefox": "web-ext build --source-dir dist/firefox --artifacts-dir dist --filename {name}-firefox-{version}.zip --overwrite-dest",
+    "package:source": "git archive --format=zip --output=dist/source.zip HEAD",
+    "package": "npm run typecheck && npm run build && npm run lint && npm run zip:chrome && npm run zip:firefox && npm run package:source",
+    "sign": "npm run build:firefox && npm run package:source && web-ext sign --source-dir dist/firefox --artifacts-dir dist --channel unlisted --upload-source-code dist/source.zip"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.3.7",
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "web-ext": "^10.8.0"
+  }
+}

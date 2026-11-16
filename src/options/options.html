@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Extension settings</title>
+    <link rel="stylesheet" href="base.css" />
+    <style>
+      body { padding: 40px 20px 80px; }
+      main { max-width: 560px; margin: 0 auto; }
+      .sub { margin: 0 0 24px; }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+      }
+      .card input { background: var(--bg); }
+      #status { min-height: 1.5em; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>My Extension</h1>
+      <p class="sub muted">Changes save automatically and sync across your browsers.</p>
+      <div class="card">
+        <label>
+          Greeting
+          <input id="greeting" type="text" autocomplete="off" />
+        </label>
+        <span id="status" class="muted" role="status" aria-live="polite"></span>
+      </div>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

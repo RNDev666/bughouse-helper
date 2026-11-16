@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Extension</title>
+    <link rel="stylesheet" href="base.css" />
+    <style>
+      body { width: 300px; padding: 16px; }
+      main { display: flex; flex-direction: column; gap: 12px; }
+      #greeting {
+        margin: 0;
+        padding: 10px 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow-wrap: anywhere;
+      }
+      .error:empty { display: none; }
+      .error { margin: 0; }
+      footer { display: flex; justify-content: flex-end; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>My Extension</h1>
+      <p id="greeting" aria-label="Current greeting"></p>
+      <button id="show-toast" class="primary" type="button">Show on page</button>
+      <p id="error" class="error" role="alert"></p>
+      <footer>
+        <button id="open-options" class="link" type="button">Settings</button>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
